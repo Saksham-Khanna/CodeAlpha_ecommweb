@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile - AMAZKART</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      .profile-container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+
+      .profile-header {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        margin-bottom: 2rem;
+        padding: 2rem;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .profile-avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #ff6b6b;
+      }
+
+      .profile-info {
+        flex: 1;
+      }
+
+      .profile-info h2 {
+        margin: 0 0 0.5rem 0;
+        color: #333;
+      }
+
+      .profile-info p {
+        margin: 0.25rem 0;
+        color: #666;
+      }
+
+      .profile-actions {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .profile-section {
+        background: #fff;
+        border-radius: 10px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .profile-section h3 {
+        margin: 0 0 1.5rem 0;
+        color: #333;
+        border-bottom: 2px solid #ff6b6b;
+        padding-bottom: 0.5rem;
+      }
+
+      .orders-list {
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .order-card {
+        border: 1px solid #eee;
+        border-radius: 8px;
+        padding: 1.5rem;
+        transition: transform 0.2s;
+      }
+
+      .order-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .order-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .order-date {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      .order-items {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .order-item {
+        display: flex;
+        gap: 1rem;
+        padding: 1rem;
+        background: #f9f9f9;
+        border-radius: 6px;
+      }
+
+      .order-item img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 4px;
+      }
+
+      .item-details h5 {
+        margin: 0 0 0.5rem 0;
+      }
+
+      .order-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid #eee;
+      }
+
+      .order-status {
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .order-status.pending {
+        background: #fff3cd;
+        color: #856404;
+      }
+
+      .order-status.completed {
+        background: #d4edda;
+        color: #155724;
+      }
+
+      .order-status.cancelled {
+        background: #f8d7da;
+        color: #721c24;
+      }
+
+      .no-orders-message {
+        text-align: center;
+        padding: 3rem;
+        background: #f9f9f9;
+        border-radius: 8px;
+      }
+
+      .no-orders-message i {
+        font-size: 3rem;
+        color: #ccc;
+        margin-bottom: 1rem;
+      }
+
+      .continue-shopping {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.75rem 1.5rem;
+        background: #ff6b6b;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.2s;
+      }
+
+      .continue-shopping:hover {
+        background: #ff5252;
+      }
+
+      .profile-message {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 1rem 2rem;
+        border-radius: 5px;
+        color: white;
+        z-index: 1000;
+        animation: slideIn 0.3s ease-out;
+      }
+
+      .profile-message.success {
+        background: #28a745;
+      }
+
+      .profile-message.error {
+        background: #dc3545;
+      }
+
+      @keyframes slideIn {
+        from {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      .login-required-message {
+        text-align: center;
+        padding: 3rem;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .login-required-message h2 {
+        color: #333;
+        margin-bottom: 1rem;
+      }
+
+      .login-required-message p {
+        color: #666;
+        margin-bottom: 2rem;
+      }
+
+      .login-required-message a {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background: #ff6b6b;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.2s;
+      }
+
+      .login-required-message a:hover {
+        background: #ff5252;
+      }
+
+      .addresses-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .address-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .address-card {
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        padding: 1.5rem;
+        position: relative;
+      }
+
+      .address-card.default {
+        border-color: #ff6b6b;
+      }
+
+      .address-type {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        padding: 0.25rem 0.75rem;
+        background: #f8f9fa;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        color: #666;
+      }
+
+      .address-content {
+        margin-top: 1rem;
+      }
+
+      .address-content p {
+        margin: 0.5rem 0;
+        color: #666;
+      }
+
+      .address-actions {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid #eee;
+      }
+
+      .address-actions button {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+      }
+
+      .edit-address {
+        background: #e9ecef;
+        color: #495057;
+      }
+
+      .edit-address:hover {
+        background: #dee2e6;
+      }
+
+      .delete-address {
+        background: #f8d7da;
+        color: #721c24;
+      }
+
+      .delete-address:hover {
+        background: #f5c6cb;
+      }
+
+      .set-default {
+        background: #d4edda;
+        color: #155724;
+      }
+
+      .set-default:hover {
+        background: #c3e6cb;
+      }
+
+      .add-address-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        background: #ff6b6b;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      .add-address-btn:hover {
+        background: #ff5252;
+      }
+
+      .address-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+      }
+
+      .address-modal.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal-content {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        width: 90%;
+        max-width: 600px;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .modal-header h3 {
+        margin: 0;
+        color: #333;
+      }
+
+      .close-modal {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #666;
+      }
+
+      .address-form {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      .form-group {
+        margin-bottom: 1rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #555;
+      }
+
+      .form-group input,
+      .form-group select {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+      }
+
+      .form-group input:focus,
+      .form-group select:focus {
+        border-color: #ff6b6b;
+        outline: none;
+      }
+
+      .modal-footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid #eee;
+      }
+
+      .modal-footer button {
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background 0.2s;
+      }
+
+      .cancel-btn {
+        background: #e9ecef;
+        color: #495057;
+      }
+
+      .cancel-btn:hover {
+        background: #dee2e6;
+      }
+
+      .save-btn {
+        background: #ff6b6b;
+        color: white;
+      }
+
+      .save-btn:hover {
+        background: #ff5252;
+      }
+
+      .address-bar {
+        background: #f8f9fa;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-top: 1rem;
+      }
+
+      .quick-address-form {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .quick-address-form input,
+      .quick-address-form button {
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      .quick-address-form input {
+        width: 100%;
+      }
+
+      .quick-address-form button {
+        background: #ff6b6b;
+        color: white;
+        cursor: pointer;
+      }
+
+      .quick-address-form button:hover {
+        background: #ff5252;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="header-nav">
+        <div class="nav-left">
+          <h1 class="logo">
+            <a href="index.html">
+              <img src="name.png" alt="AMAZKART Logo" width="200" height="30" />
+            </a>
+          </h1>
+          <a href="all-products.html" class="all-products">All Products</a>
+        </div>
+        <div class="nav-right">
+          <input
+            type="text"
+            placeholder="🔍 Search products"
+            class="search-bar"
+          />
+          <button class="search-button">Search</button>
+          <a href="profile.html" class="active">Profile</a>
+          <a href="login.html">Login</a>
+          <a href="cart.html">🛒 Cart</a>
+          <a href="seller.html">Become a seller</a>
+          <span class="menu-icon">⋮</span>
+        </div>
+      </nav>
+    </header>
+
+    <div class="profile-container">
+      <!-- Login Required Message -->
+      <div class="login-required-message" style="display: none">
+        <i class="fas fa-user-lock"></i>
+        <h2>Login Required</h2>
+        <p>
+          Please login or register to view your profile and access your orders,
+          wishlist, and saved addresses.
+        </p>
+        <div class="auth-buttons">
+          <a href="login.html" class="auth-button login-button">Login</a>
+          <a href="register.html" class="auth-button register-button"
+            >Register</a
+          >
+        </div>
+      </div>
+
+      <!-- Profile Content (Hidden when not logged in) -->
+      <div class="profile-content" style="display: none">
+        <div class="profile-header">
+          <img
+            src="https://via.placeholder.com/150"
+            alt="Profile Picture"
+            class="profile-avatar"
+          />
+          <div class="profile-info">
+            <h2 id="userName">Loading...</h2>
+            <p>
+              <i class="fas fa-envelope"></i>
+              <span id="userEmail">Loading...</span>
+            </p>
+            <p>
+              <i class="fas fa-phone"></i>
+              <span id="userPhone">Loading...</span>
+            </p>
+            <p>
+              <i class="fas fa-map-marker-alt"></i>
+              <span id="userAddress">Loading...</span>
+            </p>
+            <div class="profile-actions">
+              <button class="logout-btn">Logout</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-sections">
+          <section id="orders" class="profile-section">
+            <h3>Order History</h3>
+            <div class="no-orders-message">
+              <i class="fas fa-shopping-bag"></i>
+              <h4>No Orders Yet</h4>
+              <p>Looks like you haven't placed any orders yet.</p>
+              <a href="all-products.html" class="continue-shopping"
+                >Start Shopping</a
+              >
+            </div>
+          </section>
+
+          <section id="addresses" class="profile-section">
+            <h3>Saved Addresses</h3>
+            <div class="addresses-grid">
+              <div class="address-cards" id="addressCards">
+                <!-- Address cards will be loaded here -->
+              </div>
+              <button class="add-address-btn" id="addAddressBtn">
+                <i class="fas fa-plus"></i> Add New Address
+              </button>
+            </div>
+          </section>
+        </div>
+
+        <!-- Address Form Modal -->
+        <div class="address-modal" id="addressModal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3>Add New Address</h3>
+              <button class="close-modal">&times;</button>
+            </div>
+            <form id="addressForm">
+              <div class="form-group">
+                <label for="addressType">Address Type</label>
+                <select id="addressType" required>
+                  <option value="home">Home</option>
+                  <option value="work">Work</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="streetAddress">Street Address</label>
+                <input
+                  type="text"
+                  id="streetAddress"
+                  required
+                  placeholder="Enter street address"
+                />
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="city">City</label>
+                  <input
+                    type="text"
+                    id="city"
+                    required
+                    placeholder="Enter city"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="state">State</label>
+                  <input
+                    type="text"
+                    id="state"
+                    required
+                    placeholder="Enter state"
+                  />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="postalCode">Postal Code</label>
+                  <input
+                    type="text"
+                    id="postalCode"
+                    required
+                    placeholder="Enter postal code"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="country">Country</label>
+                  <input
+                    type="text"
+                    id="country"
+                    required
+                    placeholder="Enter country"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="isDefault">
+                  <input type="checkbox" id="isDefault" />
+                  Set as default address
+                </label>
+              </div>
+              <div class="form-actions">
+                <button type="button" class="cancel-btn">Cancel</button>
+                <button type="submit" class="save-btn">Save Address</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Check if user is logged in and load profile data
+      function checkLoginStatus() {
+        const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+        const loginMessage = document.querySelector(".login-required-message");
+        const profileContent = document.querySelector(".profile-content");
+
+        if (isLoggedIn) {
+          loginMessage.style.display = "none";
+          profileContent.style.display = "block";
+          loadUserProfile();
+        } else {
+          loginMessage.style.display = "block";
+          profileContent.style.display = "none";
+        }
+      }
+
+      // Load user profile data from localStorage
+      function loadUserProfile() {
+        const userData = JSON.parse(localStorage.getItem("currentUser"));
+        // Debug: See what is actually in localStorage
+        console.log("UserData from localStorage:", userData);
+
+        if (userData) {
+          // For name: use fullName (your backend), fallback to name if needed
+          document.getElementById("userName").textContent =
+            userData.fullName || userData.name || "Not set";
+          document.getElementById("userEmail").textContent =
+            userData.email || "Not provided";
+          document.getElementById("userPhone").textContent =
+            userData.phone || "Not provided";
+          document.getElementById("userAddress").textContent =
+            userData.address || "No address added yet";
+        }
+      }
+
+      // Logout function
+      function logout() {
+        localStorage.removeItem("isLoggedIn");
+        localStorage.removeItem("currentUser");
+        localStorage.removeItem("token");
+        window.location.href = "login.html";
+      }
+
+      // Attach logout to button
+      document.addEventListener("DOMContentLoaded", function () {
+        checkLoginStatus();
+        const logoutBtn = document.querySelector(".logout-btn");
+        if (logoutBtn) {
+          logoutBtn.addEventListener("click", logout);
+        }
+      });
+    </script>
+  </body>
+</html>

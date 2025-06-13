@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - AMAZKART</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="header-nav">
+            <div class="nav-left">
+                <h1 class="logo">
+                    <a href="index.html">
+                        <img src="name.png" alt="AMAZKART Logo" width="200" height="30" />
+                    </a>
+                </h1>
+                <a href="all-products.html" class="all-products">All Products</a>
+            </div>
+            <div class="nav-right">
+                <input type="text" placeholder="🔍 Search products" class="search-bar" />
+                <button class="search-button">Search</button>
+                <a href="profile.html">Profile</a>
+                <a href="login.html">Login</a>
+                <a href="cart.html" class="active">🛒 Cart</a>
+                <a href="Seller.html">Become a seller</a>
+                <span class="menu-icon">⋮</span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="cart-container">
+            <div class="cart-items">
+                <h2>Your Cart Items</h2>
+                <div id="cartItemsList">
+                    <!-- Cart items will be dynamically added here -->
+                </div>
+                <div class="empty-cart-message" style="display: none;">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h2>Your cart is empty</h2>
+                    <p>Looks like you haven't added any items to your cart yet.</p>
+                    <a href="all-products.html" class="continue-shopping">Continue Shopping</a>
+                </div>
+            </div>
+
+            <div class="cart-summary">
+                <h2>Order Summary</h2>
+                <div class="summary-item">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">$0.00</span>
+                </div>
+                <div class="summary-item">
+                    <span>Shipping:</span>
+                    <span id="shipping">$0.00</span>
+                </div>
+                <div class="summary-item">
+                    <span>Tax:</span>
+                    <span id="tax">$0.00</span>
+                </div>
+                <div class="summary-item total">
+                    <span>Total:</span>
+                    <span id="total">$0.00</span>
+                </div>
+                <button class="checkout-button" disabled>Proceed to Checkout</button>
+            </div>
+        </div>
+    </main>
+
+    <button id="backToTop" class="back-to-top">↑</button>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Cart</a></li>
+                    <li><a href="#">Orders</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <p>
+                    <a href="#">Instagram</a> | <a href="#">Facebook</a> |
+                    <a href="#">Twitter</a>
+                </p>
+            </div>
+        </div>
+        <p style="text-align: center">
+            &copy; 2025 AMAZKART. All rights reserved.
+        </p>
+    </footer>
+
+    <script src="cart.js"></script>
+</body>
+</html>

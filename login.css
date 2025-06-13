@@ -1,0 +1,113 @@
+/* Card styles */
+.login-box, .auth-box {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 48px 32px;
+  max-width: 420px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+/* Heading styles */
+.login-box h2, .auth-box h2 {
+  color: #222;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* Subtitle */
+.auth-subtitle {
+  color: #555;
+  font-size: 1.1rem;
+  margin-bottom: 28px;
+}
+
+/* Input styles */
+.login-form input[type="email"],
+.login-form input[type="password"] {
+  border: 1.5px solid #ddd;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.login-form input:focus {
+  border-color: #007bff;
+}
+
+/* Button styles */
+.btn, .login-button, .btn-primary {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 12px 0;
+  width: 100%;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn:hover, .login-button:hover, .btn-primary:hover {
+  background: #0056b3;
+}
+
+/* Social buttons */
+.btn-google, .btn-facebook {
+  background: #fff;
+  color: #007bff;
+  border: 2px solid #007bff;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-google:hover, .btn-facebook:hover {
+  background: #e6f0ff;
+  color: #0056b3;
+}
+
+/* Divider */
+.auth-divider, .divider {
+  margin: 24px 0;
+  color: #bbb;
+  font-size: 15px;
+  position: relative;
+  text-align: center;
+}
+
+.auth-divider span, .divider span {
+  background: #fff;
+  padding: 0 12px;
+  color: #666;
+}
+
+/* Links */
+.forgot-password, .signup-link a, .auth-switch a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.forgot-password:hover, .signup-link a:hover, .auth-switch a:hover {
+  text-decoration: underline;
+}
+
+/* Checkbox and label */
+.remember-me {
+  color: #666;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-box, .auth-box {
+    padding: 20px;
+  }
+  .login-box h2, .auth-box h2 {
+    font-size: 1.3rem;
+  }
+}

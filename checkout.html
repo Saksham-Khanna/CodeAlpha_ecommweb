@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - AMAZKART</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="header-nav">
+            <div class="nav-left">
+                <h1 class="logo">
+                    <a href="index.html">
+                        <img src="name.png" alt="AMAZKART Logo" width="200" height="30" />
+                    </a>
+                </h1>
+                <a href="all-products.html" class="all-products">All Products</a>
+            </div>
+            <div class="nav-right">
+                <input type="text" placeholder="🔍 Search products" class="search-bar" />
+                <button class="search-button">Search</button>
+                <a href="profile.html">Profile</a>
+                <a href="login.html">Login</a>
+                <a href="cart.html">🛒 Cart</a>
+                <a href="seller.html">Become a seller</a>
+                <span class="menu-icon">⋮</span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="checkout-container">
+            <div class="checkout-steps">
+                <div class="step active">
+                    <span class="step-number">1</span>
+                    <span class="step-text">Shipping</span>
+                </div>
+                <div class="step-line"></div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <span class="step-text">Payment</span>
+                </div>
+                <div class="step-line"></div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <span class="step-text">Review</span>
+                </div>
+            </div>
+
+            <div class="checkout-content">
+                <div class="checkout-form">
+                    <h2>Shipping Information</h2>
+                    <form id="shippingForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Street Address</label>
+                            <input type="text" id="address" name="address" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" id="city" name="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="state">State</label>
+                                <input type="text" id="state" name="state" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="zipCode">ZIP Code</label>
+                                <input type="text" id="zipCode" name="zipCode" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Country</label>
+                                <select id="country" name="country" required>
+                                    <option value="">Select Country</option>
+                                    <option value="US">United States</option>
+                                    <option value="CA">Canada</option>
+                                    <option value="UK">United Kingdom</option>
+                                    <option value="AU">Australia</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="saveAddress" id="saveAddress">
+                                Save this address for future orders
+                            </label>
+                        </div>
+
+                        <button type="submit" class="continue-button">Continue to Payment</button>
+                    </form>
+                </div>
+
+                <div class="order-summary">
+                    <h2>Order Summary</h2>
+                    <div id="orderItems">
+                        <!-- Order items will be dynamically added here -->
+                    </div>
+                    <div class="summary-totals">
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="subtotal">$0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping</span>
+                            <span id="shipping">$0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax</span>
+                            <span id="tax">$0.00</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <span id="total">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Cart</a></li>
+                    <li><a href="#">Orders</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <p>
+                    <a href="#">Instagram</a> | <a href="#">Facebook</a> |
+                    <a href="#">Twitter</a>
+                </p>
+            </div>
+        </div>
+        <p style="text-align: center">
+            &copy; 2025 AMAZKART. All rights reserved.
+        </p>
+    </footer>
+
+    <script src="checkout.js"></script>
+</body>
+</html> 

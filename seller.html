@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="seller.css" />
+    <title>Become a Seller - AMAZKART</title>
+  </head>
+  <body>
+    <header>
+      <nav class="header-nav">
+        <div class="nav-left">
+          <h1 class="logo">
+            <a href="index.html">
+              <img src="name.png" alt="AMAZKART Logo" width="200" height="30" />
+            </a>
+          </h1>
+          <a href="all-products.html" class="all-products">All Products</a>
+        </div>
+        <div class="nav-right">
+          <input
+            type="text"
+            placeholder="🔍 Search products"
+            class="search-bar"
+          />
+          <button class="search-button">Search</button>
+          <a href="profile.html">Profile</a>
+          <a href="login.html">Login</a>
+          <a href="cart.html">🛒 Cart</a>
+          <a href="seller.html" class="active">Become a seller</a>
+          <span class="menu-icon">⋮</span>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="seller-container">
+        <div class="seller-header">
+          <h2>Start Selling on AMAZKART</h2>
+          <p>Join thousands of sellers who are already growing their business with us</p>
+        </div>
+        
+        <div class="seller-benefits">
+          <div class="benefit-card">
+            <h3>Wide Customer Base</h3>
+            <p>Reach millions of customers across India</p>
+          </div>
+          <div class="benefit-card">
+            <h3>Easy Setup</h3>
+            <p>Start selling in minutes with our simple onboarding process</p>
+          </div>
+          <div class="benefit-card">
+            <h3>Secure Payments</h3>
+            <p>Get paid securely and on time</p>
+          </div>
+          <div class="benefit-card">
+            <h3>24/7 Support</h3>
+            <p>Access to dedicated seller support team</p>
+          </div>
+        </div>
+
+        <div class="seller-form">
+          <h3>Register as a Seller</h3>
+          <form>
+            <div class="form-group">
+              <label for="business-name">Business Name</label>
+              <input type="text" id="business-name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" required>
+            </div>
+            <div class="form-group">
+              <label for="address">Business Address</label>
+              <textarea id="address" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="gst">GST Number (Optional)</label>
+              <input type="text" id="gst">
+            </div>
+            <button type="submit" class="submit-button">Start Selling</button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <button id="backToTop" class="back-to-top">↑</button>
+    <footer>
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>About</h3>
+          <ul>
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Customer Service</h3>
+          <ul>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">My Account</a></li>
+            <li><a href="#">Cart</a></li>
+            <li><a href="#">Orders</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <p>
+            <a href="#">Instagram</a> | <a href="#">Facebook</a> |
+            <a href="#">Twitter</a>
+          </p>
+        </div>
+      </div>
+      <p style="text-align: center">
+        &copy; 2025 AMAZKART. All rights reserved.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="seller.js"></script>
+  </body>
+</html>
